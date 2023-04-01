@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 31 101 209;
+    --color-secondary: 51 102 255;
+    --color-info: 24 144 255;
+    --color-success: 84 214 44;
+    --color-warn: 255 193 7;
+    --color-error: 255 72 66;
+    --color-text: 100 100 100;
+    --color-background: 255 255 255;
+    --color-divider: 238 238 238;
+  }
+
+  :root[class="dark"] {
+    --color-primary: 31 101 209;
+    --color-secondary: 51 102 255;
+    --color-info: 24 144 255;
+    --color-success: 84 214 44;
+    --color-warn: 255 193 7;
+    --color-error: 255 72 66;
+    --color-text: 255 255 255;
+    --color-background: 33 43 54;
+    --color-divider: 238 238 238;
+  }
+}
+
+/* @link https://utopia.fyi/type/calculator?c=320,20,1.067,1920,26,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.125,1920,24,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1920,22,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1920,21,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --step--2: clamp(0.79rem, calc(0.77rem + 0.12vw), 0.91rem);
+  --step--1: clamp(0.89rem, calc(0.85rem + 0.21vw), 1.09rem);
+  --step-0: clamp(1rem, calc(0.94rem + 0.31vw), 1.31rem);
+  --step-1: clamp(1.13rem, calc(1.04rem + 0.45vw), 1.58rem);
+  --step-2: clamp(1.27rem, calc(1.14rem + 0.62vw), 1.89rem);
+  --step-3: clamp(1.42rem, calc(1.25rem + 0.84vw), 2.27rem);
+  --step-4: clamp(1.6rem, calc(1.38rem + 1.12vw), 2.72rem);
+  --step-5: clamp(1.8rem, calc(1.51rem + 1.46vw), 3.27rem);
+
+  --font-text-400: "Hind", sans-serif;
+  --font-text-500: "Montserrat", sans-serif;
+  --font-text-600: "Montserrat", sans-serif;
+}
+/* ******************** Headings ******************** */
+body {
+  font-family: var(--font-text-400);
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-text-600);
+  font-weight: 700;
+  line-height: 2;
+  margin: 0.5em 0;
+}
+
+.step-6 {
+  font-size: var(--step-6);
+}
+
+h1,
+.step-5 {
+  font-size: var(--step-5);
+}
+
+h2,
+.step-4 {
+  font-size: var(--step-4);
+}
+
+h3,
+.step-3 {
+  font-size: var(--step-3);
+}
+
+h4,
+.step-2 {
+  font-size: var(--step-2);
+}
+
+h5,
+.step-1 {
+  font-size: var(--step-1);
+}
+
+h6,
+.step-0 {
+  font-size: var(--step-0);
+}
