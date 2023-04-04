@@ -1,9 +1,18 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 //icons
 import { FaEnvelopeOpen, FaHome, FaSuitcase, FaUserAlt } from "react-icons/fa";
+import { MdClose, MdMenu } from "react-icons/md";
 
-const NavItem = ({ icon, title, href }) => {
+const navRoutes = [
+  { href: "/", title: "Home", icon: <FaHome /> },
+  { href: "/about", title: "About", icon: <FaUserAlt /> },
+  { href: "/portfolio", title: "Portfolio", icon: <FaSuitcase /> },
+  { href: "/contact", title: "Contact", icon: <FaEnvelopeOpen /> },
+];
+
+const NavItem = ({ icon, title, href = "" }) => {
   const router = useRouter();
   return (
     <li
@@ -27,15 +36,64 @@ const NavItem = ({ icon, title, href }) => {
   );
 };
 
+const NavItemDesktop = ({ icon, title, href = "" }) => {
+  const router = useRouter();
+  return (
+    <li
+      className={`${
+        router.pathname === href && "text-primary"
+      } relative mx-8 border-b-[1px] border-divider_menu`}
+    >
+      <Link href={href} legacyBehavior>
+        <a className="block text-2xl py-4 relative [&_svg]:inline-block">
+          {icon}
+          <span className="absolute left-10">{title}</span>
+        </a>
+      </Link>
+    </li>
+  );
+};
+
 function NavMenu() {
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen((prev) => !prev);
+  };
+
   return (
     <header className="fixed top-[100px] right-7 z-50 h-[calc(100%-200px)] flex items-center">
-      <ul>
-        <NavItem icon={<FaHome />} title="Home" href="/" />
-        <NavItem icon={<FaUserAlt />} title="About" href="/about" />
-        <NavItem icon={<FaSuitcase />} title="Portfolio" href="/portfolio" />
-        <NavItem icon={<FaEnvelopeOpen />} title="Contact" href="/contact" />
+      <ul className="hidden lg:block">
+        {navRoutes.map((el, index) => (
+          <NavItem key={index} href={el.href} icon={el.icon} title={el.title} />
+        ))}
       </ul>
+      <nav role="navigation" className="block lg:hidden">
+        <div id="menuToggle">
+          <button
+            className={`fixed top-1 right-2 sm:top-8 sm:right-8 z-50 select-none p-2 border-[1px] text-4xl rounded-md border-transparent bg-divider ${
+              !open ? "sm:border-divider_menu" : "border-transparent"
+            }`}
+            onClick={handleClose}
+          >
+            {open ? <MdClose /> : <MdMenu />}
+          </button>
+          <ul
+            className={`fixed top-0 left-0 w-full h-full pt-16 bg-divider ${
+              !open && "-translate-x-full"
+            } `}
+            id="menu"
+          >
+            {navRoutes.map((el, index) => (
+              <NavItemDesktop
+                key={index}
+                href={el.href}
+                icon={el.icon}
+                title={el.title}
+              />
+            ))}
+          </ul>
+        </div>
+      </nav>
     </header>
   );
 }

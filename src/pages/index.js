@@ -7,6 +7,8 @@ import Image from "next/image";
 import avatar from "../../public/img/john_apco_v3.png";
 import Button from "../components/Button";
 import Layout from "../layouts";
+import { FaArrowRight } from "react-icons/fa";
+import Link from "next/link";
 
 /* const inter = Inter({ subsets: ["latin"] }); */
 
@@ -51,9 +53,11 @@ export default function Home() {
                 passionate about building excellent software that improves the
                 lives of those around me.
               </p>
-              <Button href="/about" iconClass={"fa-arrow-right"}>
-                More About Me
-              </Button>
+              <Link href="/about">
+                <Button href="/about" icon={<FaArrowRight />}>
+                  More About Me
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

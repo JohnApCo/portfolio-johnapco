@@ -12,6 +12,7 @@
     --color-error: 255 72 66;
     --color-text: 100 100 100;
     --color-background: 255 255 255;
+    --color-divider_menu: 221 221 221;
     --color-divider: 238 238 238;
   }
 
@@ -24,6 +25,7 @@
     --color-error: 255 72 66;
     --color-text: 255 255 255;
     --color-background: 33 43 54;
+    --color-divider_menu: 221 221 221;
     --color-divider: 238 238 238;
   }
 }

@@ -20,6 +20,7 @@ module.exports = {
         error: "rgb(var(--color-error) / <alpha-value>)",
         text: "rgb(var(--color-text) / <alpha-value>)",
         background: "rgb(var(--color-background) / <alpha-value>)",
+        divider_menu: "rgb(var(--color-divider_menu) / <alpha-value>)",
         transparent: "transparent",
         current: "currentColor",
         divider: "rgb(var(--color-divider) / <alpha-value>)",

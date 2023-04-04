@@ -13,15 +13,15 @@ function TitleLayout({ children, title, titleBg, ...other }) {
 
   return (
     <>
-      <section className="bg-slate-200 md:bg-transparent border-b-[1px] md:border-none border-slate-400 px-6 py-4 md:py-20 text-text uppercase text-left md:text-center fixed md:relative mb-9 md:m-0 left-0 right-0 top-0 z-20">
+      <section className=" bg-divider sm:bg-transparent border-b-[1px] sm:border-none border-divider_menu px-6 py-4 sm:py-20 text-text uppercase text-left sm:text-center fixed sm:relative mb-9 sm:m-0 left-0 right-0 top-0 z-20">
         <h1 className="font-black my-0 leading-none">
           {otherWords} <span className="text-primary">{lastWord}</span>
         </h1>
-        <span className="hidden md:block absolute text-9xl left-0 right-0 font-black font-[Montserrat] top-1/2 tracking-widest opacity-5 -translate-y-1/2">
+        <span className="hidden sm:block absolute text-9xl left-0 right-0 font-black font-[Montserrat] top-1/2 tracking-widest opacity-5 -translate-y-1/2">
           {titleBg}
         </span>
       </section>
-      <div className="pt-24 md:pt-0 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 xl:px-48">
+      <div className="pt-24 sm:pt-0 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 xl:px-48">
         {children}
       </div>
     </>

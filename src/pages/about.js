@@ -10,6 +10,7 @@ import SubTitle from "../components/SubTitle";
 //icons
 import {
   FaCss3Alt,
+  FaDownload,
   FaGitAlt,
   FaGraduationCap,
   FaHtml5,
@@ -26,25 +27,12 @@ import { SiFirebase, SiTailwindcss } from "react-icons/si";
 import { MdEmail, MdLanguage, MdLocationOn, MdPhone } from "react-icons/md";
 import Layout from "../layouts";
 import TitleLayout from "../layouts/TitleLayout";
-
-const InfoItem = ({ icon, itemText, valueText, ...other }) => {
-  return (
-    <li className="pb-2 [&_svg]:inline [&_svg]:mr-3 [&_svg]:text-primary">
-      {icon}
-      <span className="opacity-80 capitalize inline-block w-32 font-semibold">
-        {itemText}:
-      </span>
-      <span className="block pl-8">{valueText}</span>
-    </li>
-  );
-};
+import { InfoItem } from "../components/InfoItem";
 
 const SkillItem = ({ icon, title, ...other }) => {
   return (
-    <div className="col-span-6 lg:col-span-3 text-center">
-      <div
-        className={`mx-auto p-2 border-2 rounded-full w-[1.6em] aspect-square text-8xl [&_svg]:mx-auto grid [&_svg]:m-auto hover:border-primary`}
-      >
+    <div className="text-center">
+      <div className="mx-auto p-2 border-2 rounded-full w-[1.6em] aspect-square text-7xl lg:text-8xl [&_svg]:mx-auto grid [&_svg]:m-auto hover:border-primary">
         {icon}
       </div>
       <h6 className="uppercase my-0 font-semibold">{title}</h6>
@@ -54,7 +42,7 @@ const SkillItem = ({ icon, title, ...other }) => {
 
 const ListItem = ({ icon, time, title, place, description, ...other }) => {
   return (
-    <div className="col-span-12 lg:col-span-6 relative pl-16 after:content-[''] after:absolute after:border-l-[1px] after:bg-divider after:top-0 after:bottom-0 after:left-5">
+    <div className="relative pl-16 after:content-[''] after:absolute after:border-l-[1px] after:bg-divider after:top-0 after:bottom-0 after:left-5 mb-6">
       <div className="absolute w-10 h-10 left-0 top-0 rounded-full bg-primary text-background grid [&_svg]:m-auto z-10 ">
         {icon}
       </div>
@@ -86,84 +74,80 @@ export default function About() {
             />
           </div>
           <div className="col-span-12 lg:col-span-7 xl:col-span-7">
-            <div className="grid grid-cols-12 gap-1">
-              <div className="col-span-12 text-center lg:text-left">
-                <h4 className="my-0">
-                  I&apos;am <span className="text-primary">John</span>, a Web
-                  Developer
-                </h4>
-                <p className="mt-2 mb-4">
-                  Hi! My name is John Frei Apaza Coaquira. I am a Web Developer,
-                  and I&apos;m very passionate and dedicated to my work. With 2
-                  years experience as a professional Web developer, I have
-                  acquired the skills and knowledge necessary to make your
-                  project a success.
-                </p>
-              </div>
-              <div className="col-span-6">
-                <ul>
-                  <InfoItem
-                    icon={<FaPencilAlt />}
-                    itemText={"first name"}
-                    valueText={"John Frei"}
-                  />
-                  <InfoItem
-                    icon={<FaPencilAlt />}
-                    itemText={"last name"}
-                    valueText={"Apaza Coaquira"}
-                  />
-                  <InfoItem
-                    icon={<MdLanguage />}
-                    itemText={"nationality"}
-                    valueText={"Peruvian"}
-                  />
-                  <InfoItem
-                    icon={<MdLocationOn />}
-                    itemText={"address"}
-                    valueText={"Perú"}
-                  />
-                </ul>
-              </div>
-              <div className="col-span-6">
-                <ul>
-                  <InfoItem
-                    icon={<MdPhone />}
-                    itemText={"phone"}
-                    valueText={"+51 988002346"}
-                  />
-                  <InfoItem
-                    icon={<MdEmail />}
-                    itemText={"email"}
-                    valueText={"john.apco.dev@gmail.com"}
-                  />
-                  <InfoItem
-                    icon={<FaGraduationCap />}
-                    itemText={"degree"}
-                    valueText={"Bachelor"}
-                  />
-                  <InfoItem
-                    icon={<FaLanguage />}
-                    itemText={"languages"}
-                    valueText={"Spanish,English"}
-                  />
-                </ul>
-              </div>
-              <div className="col-span-12 my-6">
+            {/* <div className="grid grid-cols-12 gap-1"> */}
+            <div className="text-center lg:text-left">
+              <h4 className="my-0">
+                I&apos;am <span className="text-primary">John</span>, a Web
+                Developer
+              </h4>
+              <p className="mt-2 mb-4">
+                Hi! My name is John Frei Apaza Coaquira. I am a Web Developer,
+                and I&apos;m very passionate and dedicated to my work. With 2
+                years experience as a professional Web developer, I have
+                acquired the skills and knowledge necessary to make your project
+                a success.
+              </p>
+            </div>
+            {/* <div className="grid grid-rows-4 grid-flow-col"> */}
+            <div className="grid grid-cols-2">
+              <InfoItem
+                icon={<FaPencilAlt />}
+                itemText={"first name"}
+                valueText={"John Frei"}
+              />
+              <InfoItem
+                icon={<FaPencilAlt />}
+                itemText={"last name"}
+                valueText={"Apaza Coaquira"}
+              />
+              <InfoItem
+                icon={<MdLanguage />}
+                itemText={"nationality"}
+                valueText={"Peruvian"}
+              />
+              <InfoItem
+                icon={<MdLocationOn />}
+                itemText={"address"}
+                valueText={"Perú"}
+              />
+              <InfoItem
+                icon={<MdPhone />}
+                itemText={"phone"}
+                valueText={"+51 988002346"}
+              />
+              <InfoItem
+                icon={<MdEmail />}
+                itemText={"email"}
+                valueText={"john.apco.dev@gmail.com"}
+              />
+              <InfoItem
+                icon={<FaGraduationCap />}
+                itemText={"degree"}
+                valueText={"Bachelor"}
+              />
+              <InfoItem
+                icon={<FaLanguage />}
+                itemText={"languages"}
+                valueText={"Spanish,English"}
+              />
+            </div>
+            <div className="my-6">
+              <a href="/files/CV_John_Frei_Apaza_Coaquira_2020.docx" download>
                 <Button
                   href="/files/CV_John_Frei_Apaza_Coaquira_2020.docx"
-                  iconClass="fa-download"
-                  download
+                  icon={<FaDownload />}
                 >
                   Download CV
                 </Button>
-              </div>
+              </a>
             </div>
+            {/* </div> */}
           </div>
         </div>
       </div>
       <Divider />
       <SubTitle>My Skills</SubTitle>
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <SkillItem icon={<FaHtml5 color="#E34F26" />} title="HTML" />
         <SkillItem icon={<FaCss3Alt color="#1572B6" />} title="CCS" />
         <SkillItem icon={<FaJs color="#F7DF1E" />} title="Javascript" />
@@ -175,49 +159,53 @@ export default function About() {
       </div>
       <Divider />
       <SubTitle>Experience & Education</SubTitle>
-      <div className="grid grid-cols-12 gap-14 mb-24">
-        <ListItem
-          icon={<FaSuitcase />}
-          time={"2019 - 2019"}
-          title="Instrumentista"
-          place="Repsol"
-          description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-        />
-        <ListItem
-          icon={<FaSuitcase />}
-          time={"2019 - 2019"}
-          title="Instrumentista"
-          place="Repsol"
-          description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-        />
-        <ListItem
-          icon={<FaSuitcase />}
-          time={"2019 - 2019"}
-          title="Instrumentista"
-          place="Repsol"
-          description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-        />
-        <ListItem
-          icon={<FaGraduationCap />}
-          time={"2019 - 2019"}
-          title="Instrumentista"
-          place="Repsol"
-          description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-        />
-        <ListItem
-          icon={<FaGraduationCap />}
-          time={"2019 - 2019"}
-          title="Instrumentista"
-          place="Repsol"
-          description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-        />
-        <ListItem
-          icon={<FaGraduationCap />}
-          time={"2019 - 2019"}
-          title="Instrumentista"
-          place="Repsol"
-          description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-        />
+      <div className="grid grid-cols-2 gap-x-10 mb-24">
+        <div className="col-span-2 lg:col-span-1">
+          <ListItem
+            icon={<FaSuitcase />}
+            time={"2019 - 2019"}
+            title="Instrumentista"
+            place="Repsol"
+            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
+          />
+          <ListItem
+            icon={<FaSuitcase />}
+            time={"2019 - 2019"}
+            title="Instrumentista"
+            place="Repsol"
+            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
+          />
+          <ListItem
+            icon={<FaSuitcase />}
+            time={"2019 - 2019"}
+            title="Instrumentista"
+            place="Repsol"
+            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
+          />
+        </div>
+        <div className="col-span-2 lg:col-span-1">
+          <ListItem
+            icon={<FaGraduationCap />}
+            time={"2019 - 2019"}
+            title="Instrumentista"
+            place="Repsol"
+            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
+          />
+          <ListItem
+            icon={<FaGraduationCap />}
+            time={"2019 - 2019"}
+            title="Instrumentista"
+            place="Repsol"
+            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
+          />
+          <ListItem
+            icon={<FaGraduationCap />}
+            time={"2019 - 2019"}
+            title="Instrumentista"
+            place="Repsol"
+            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
+          />
+        </div>
       </div>
       {/* </div> */}
     </>
