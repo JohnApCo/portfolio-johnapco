@@ -9,10 +9,11 @@ import Button from "../components/Button";
 import Layout from "../layouts";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
+import withTransition from "../components/animate/withTransition";
 
 /* const inter = Inter({ subsets: ["latin"] }); */
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Page
@@ -48,7 +49,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-2 mb-8 leading-loose ">
-                I&apos;m a Tunisian based web designer & front‑end developer
+                I&apos;m a Peruvian based web designer & front‑end developer
                 focused on crafting clean & user‑friendly experiences, I am
                 passionate about building excellent software that improves the
                 lives of those around me.
@@ -66,6 +67,5 @@ export default function Home() {
   );
 }
 
-Home.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
-};
+Home = withTransition(Home);
+export default Home;

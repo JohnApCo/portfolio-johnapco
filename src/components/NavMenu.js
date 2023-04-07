@@ -61,7 +61,7 @@ function NavMenu() {
   };
 
   return (
-    <header className="fixed top-[100px] right-7 z-50 h-[calc(100%-200px)] flex items-center">
+    <header className="fixed top-[100px] right-7 z-50 h-[calc(100vh-200px)] flex items-center">
       <ul className="hidden lg:block">
         {navRoutes.map((el, index) => (
           <NavItem key={index} href={el.href} icon={el.icon} title={el.title} />

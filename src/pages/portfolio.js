@@ -1,16 +1,12 @@
-import Layout from "../layouts";
+import withTransition from "../components/animate/withTransition";
 import TitleLayout from "../layouts/TitleLayout";
 
-export default function Portfolio() {
-  return <div>Portfolio</div>;
-}
-
-Portfolio.getLayout = function getLayout(page) {
+function Portfolio() {
   return (
-    <Layout>
-      <TitleLayout title={"my portfolio"} titleBg={"Works"}>
-        {page}
-      </TitleLayout>
-    </Layout>
+    <TitleLayout title={"my portfolio"} titleBg={"Works"}>
+      <span>Portfolio</span>
+    </TitleLayout>
   );
-};
+}
+Portfolio = withTransition(Portfolio);
+export default Portfolio;

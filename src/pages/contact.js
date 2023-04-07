@@ -12,6 +12,7 @@ import Layout from "../layouts";
 import TitleLayout from "../layouts/TitleLayout";
 import { ContactForm } from "../sections/contact";
 import Link from "next/link";
+import withTransition from "../components/animate/withTransition";
 
 const SocialLink = ({ icon, href = "", ...other }) => {
   return (
@@ -24,48 +25,43 @@ const SocialLink = ({ icon, href = "", ...other }) => {
     </div>
   );
 };
-export default function Contact() {
+function Contact() {
   return (
-    <div className="grid grid-cols-3 gap-10">
-      <div className="col-span-3 lg:col-span-1 [&>*]:pb-4">
-        <h4 className="uppercase leading-none my-0">Don&apos;t be shy!</h4>
-        <p>
-          Feel free to get in touch with me. I am always open to discussing new
-          projects, creative ideas or opportunities to be part of your visions.
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-1 gap-3">
-          <InfoItem
-            icon={<FaEnvelopeOpen />}
-            itemText={"MAIL ME"}
-            valueText={"john.apco.dev@gmail.com"}
-          />
-          <InfoItem
-            icon={<FaPhoneAlt />}
-            itemText={"Call ME"}
-            valueText={"+51988002346"}
-          />
-        </div>
+    <TitleLayout title={"get in touch"} titleBg={"Contact"}>
+      <div className="grid grid-cols-3 gap-10">
+        <div className="col-span-3 lg:col-span-1 [&>*]:pb-4">
+          <h4 className="uppercase leading-none my-0">Don&apos;t be shy!</h4>
+          <p>
+            Feel free to get in touch with me. I am always open to discussing
+            new projects, creative ideas or opportunities to be part of your
+            visions.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-1 gap-3">
+            <InfoItem
+              icon={<FaEnvelopeOpen />}
+              itemText={"MAIL ME"}
+              valueText={"john.apco.dev@gmail.com"}
+            />
+            <InfoItem
+              icon={<FaPhoneAlt />}
+              itemText={"Call ME"}
+              valueText={"+51988002346"}
+            />
+          </div>
 
-        <div className="">
-          <SocialLink icon={<FaLinkedin />} />
-          <SocialLink icon={<FaGithub />} />
-          <SocialLink icon={<FaCodepen />} />
-          <SocialLink icon={<FaDiscord />} />
+          <div className="">
+            <SocialLink icon={<FaLinkedin />} />
+            <SocialLink icon={<FaGithub />} />
+            <SocialLink icon={<FaCodepen />} />
+            <SocialLink icon={<FaDiscord />} />
+          </div>
+        </div>
+        <div className="col-span-3 lg:col-span-2">
+          <ContactForm />
         </div>
       </div>
-      <div className="col-span-3 lg:col-span-2">
-        <ContactForm />
-      </div>
-    </div>
+    </TitleLayout>
   );
 }
-
-Contact.getLayout = function getLayout(page) {
-  return (
-    <Layout>
-      <TitleLayout title={"get in touch"} titleBg={"Contact"}>
-        {page}
-      </TitleLayout>
-    </Layout>
-  );
-};
+Contact = withTransition(Contact);
+export default Contact;

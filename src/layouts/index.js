@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 // components
 import NavMenu from "../components/NavMenu";
+import { AnimatePresence } from "framer-motion";
 
 // ----------------------------------------------------------------------
 
@@ -12,7 +13,7 @@ export default function Layout({ children }) {
   return (
     <>
       <NavMenu />
-      <main>{children}</main>
+      <main className="min-h-screen bg-background">{children}</main>
     </>
   );
 }

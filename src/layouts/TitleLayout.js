@@ -21,7 +21,7 @@ function TitleLayout({ children, title, titleBg, ...other }) {
           {titleBg}
         </span>
       </section>
-      <div className="pt-24 sm:pt-0 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 xl:px-48">
+      <div className="pt-24 sm:pt-0 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 xl:px-44">
         {children}
       </div>
     </>

@@ -9,25 +9,145 @@ import SubTitle from "../components/SubTitle";
 
 //icons
 import {
-  FaCss3Alt,
   FaDownload,
-  FaGitAlt,
   FaGraduationCap,
-  FaHtml5,
-  FaJs,
   FaLanguage,
   FaPencilAlt,
-  FaReact,
   FaSuitcase,
-  FaWordpress,
 } from "react-icons/fa";
 
-import { SiFirebase, SiTailwindcss } from "react-icons/si";
+import {
+  SiCss3,
+  SiFirebase,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiReact,
+  SiRedux,
+  SiSass,
+  SiTailwindcss,
+  SiWordpress,
+} from "react-icons/si";
 
 import { MdEmail, MdLanguage, MdLocationOn, MdPhone } from "react-icons/md";
 import Layout from "../layouts";
 import TitleLayout from "../layouts/TitleLayout";
 import { InfoItem } from "../components/InfoItem";
+import PageTransition from "../components/animate/withTransition";
+import withTransition from "../components/animate/withTransition";
+
+const personalInfo = [
+  { itemText: "first name", icon: <FaPencilAlt />, valueText: "John Frei" },
+  { itemText: "last name", icon: <FaPencilAlt />, valueText: "Apaza Coaquira" },
+  { itemText: "nationality", icon: <MdLanguage />, valueText: "Peruvian" },
+  { itemText: "address", icon: <MdLocationOn />, valueText: "Perú" },
+  { itemText: "phone", icon: <MdPhone />, valueText: "+51 988002346" },
+  {
+    itemText: "email",
+    icon: <MdEmail />,
+    valueText: "john.apco.dev@gmail.com",
+  },
+  { itemText: "degree", icon: <FaGraduationCap />, valueText: "Bachelor" },
+  { itemText: "languages", icon: <FaLanguage />, valueText: "Spanish,English" },
+];
+
+const skillInfo = [
+  { icon: <SiHtml5 color="#E34F26" />, title: "HTML5" },
+  { icon: <SiCss3 color="#1572B6" />, title: "CCS" },
+  { icon: <SiJavascript color="#F7DF1E" />, title: "Javascript" },
+  { icon: <SiReact color="#61DAFB" />, title: "React" },
+  { icon: <SiGit color="#F05032" />, title: "Git" },
+  { icon: <SiTailwindcss color="#06B6D4" />, title: "Tailwind" },
+  { icon: <SiSass color="#CC6699" />, title: "Sass" },
+  { icon: <SiNextdotjs color="#000000" />, title: "NextJs" },
+  { icon: <SiRedux color="#764ABC" />, title: "Redux" },
+  { icon: <SiFirebase color="#FFCA28" />, title: "Firebase" },
+  { icon: <SiWordpress color="#21759B" />, title: "Wordpress" },
+];
+
+const expInfo = [
+  {
+    time: "2020-2022",
+    title: "Asistente de Desarrollo",
+    place: "Lontec",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m",
+  },
+  {
+    time: "2019",
+    title: "Instrumentista",
+    place: "Repsol",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m",
+  },
+  {
+    time: "2018",
+    title: "Investigador",
+    place: "Control SAC",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m",
+  },
+];
+
+const eduInfo = [
+  {
+    time: "2023",
+    title: "Front End Development Libraries",
+    place: "FreeCodeCamp",
+    description:
+      "I learned how to style your site quickly with Bootstrap and Sass. I built a shopping cart and other applications to learn how to create powerful Single Page Applications (SPAs) with React and Redux.",
+  },
+  {
+    time: "2022",
+    title: "JavaScript Algorithms and Data Structures",
+    place: "FreeCodeCamp",
+    description:
+      "I learned the fundamentals of JavaScript including variables, arrays, objects, loops, and functions. I also learned two important programming styles or paradigms: Object Oriented Programming (OOP) and Functional Programming (FP).",
+  },
+  {
+    time: "2022",
+    title: "Responsive Web Design",
+    place: "FreeCodeCamp",
+    description:
+      "I learned HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design, I learned how to make webpages that respond to different screen sizes with Flexbox and CSS Grid.",
+  },
+  {
+    time: "2015-2019",
+    title: "English",
+    place: "ICPNA-Instituto Cultural Peruano Norteamericano",
+    description:
+      "I learned American English with the exclusive Immersia Learning methodology.",
+  },
+  {
+    time: "2017",
+    title: "PLC - Electrónica Industrial - II",
+    place: "Curso de Extensión Universitaria",
+    description:
+      "I learned to provide PLC installation and programming services for the control of industrial machines.",
+  },
+  {
+    time: "2016",
+    title: "PLC - Electrónica Industrial - I",
+    place: "Curso de Extensión Universitaria",
+    description:
+      "I learned to provide PLC installation and programming services for the control of industrial machines.",
+  },
+  {
+    time: "2013-2018",
+    title: "Ing. Electrónica",
+    place: "Universidad Nacional de Ingeniería",
+    description:
+      "I learned to design, develop, test and supervise the manufacture of electrical equipment, such as electric motors, radar and navigation systems, communication systems or power generation equipment.",
+  },
+  {
+    time: "2014",
+    title: "Lenguaje de programación C++",
+    place: "Curso de Extensión Universitaria",
+    description:
+      "I learned how to create control flow structures and functions, differentiate between data types and variables, develop the basic structure of a program, and set up a development environment for C++.",
+  },
+];
 
 const SkillItem = ({ icon, title, ...other }) => {
   return (
@@ -49,7 +169,7 @@ const ListItem = ({ icon, time, title, place, description, ...other }) => {
       <span className="bg-divider px-3 rounded-full font-medium tracking-wider ">
         {time}
       </span>
-      <h5 className="leading-none font-medium">
+      <h5 className="leading-tight font-medium">
         {title}
         <span className="opacity-80 ">{` - ${place}`}</span>
       </h5>
@@ -57,11 +177,9 @@ const ListItem = ({ icon, time, title, place, description, ...other }) => {
     </div>
   );
 };
-export default function About() {
+function About() {
   return (
-    <>
-      {/* <HeaderTitle title={"about me"} titleBg={"Resume"}></HeaderTitle> */}
-      {/* <div className="pt-24 md:pt-0 container px-6 md:px-4 mx-auto"> */}
+    <TitleLayout title={"about me"} titleBg={"Resume"}>
       <div className="flex flex-row">
         <div className="grid grid-cols-12 gap-6">
           <div className="w-1/3 lg:w-full mx-auto col-span-12 lg:col-span-5 xl:col-span-5">
@@ -90,46 +208,14 @@ export default function About() {
             </div>
             {/* <div className="grid grid-rows-4 grid-flow-col"> */}
             <div className="grid grid-cols-2">
-              <InfoItem
-                icon={<FaPencilAlt />}
-                itemText={"first name"}
-                valueText={"John Frei"}
-              />
-              <InfoItem
-                icon={<FaPencilAlt />}
-                itemText={"last name"}
-                valueText={"Apaza Coaquira"}
-              />
-              <InfoItem
-                icon={<MdLanguage />}
-                itemText={"nationality"}
-                valueText={"Peruvian"}
-              />
-              <InfoItem
-                icon={<MdLocationOn />}
-                itemText={"address"}
-                valueText={"Perú"}
-              />
-              <InfoItem
-                icon={<MdPhone />}
-                itemText={"phone"}
-                valueText={"+51 988002346"}
-              />
-              <InfoItem
-                icon={<MdEmail />}
-                itemText={"email"}
-                valueText={"john.apco.dev@gmail.com"}
-              />
-              <InfoItem
-                icon={<FaGraduationCap />}
-                itemText={"degree"}
-                valueText={"Bachelor"}
-              />
-              <InfoItem
-                icon={<FaLanguage />}
-                itemText={"languages"}
-                valueText={"Spanish,English"}
-              />
+              {personalInfo.map((el, index) => (
+                <InfoItem
+                  key={index}
+                  icon={el.icon}
+                  itemText={el.itemText}
+                  valueText={el.valueText}
+                />
+              ))}
             </div>
             <div className="my-6">
               <a href="/files/CV_John_Frei_Apaza_Coaquira_2020.docx" download>
@@ -141,83 +227,48 @@ export default function About() {
                 </Button>
               </a>
             </div>
-            {/* </div> */}
           </div>
         </div>
       </div>
       <Divider />
       <SubTitle>My Skills</SubTitle>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <SkillItem icon={<FaHtml5 color="#E34F26" />} title="HTML" />
-        <SkillItem icon={<FaCss3Alt color="#1572B6" />} title="CCS" />
-        <SkillItem icon={<FaJs color="#F7DF1E" />} title="Javascript" />
-        <SkillItem icon={<FaReact color="#61DAFB" />} title="React" />
-        <SkillItem icon={<FaGitAlt color="#F05032" />} title="Git" />
-        <SkillItem icon={<SiTailwindcss color="#06B6D4" />} title="Tailwind" />
-        <SkillItem icon={<SiFirebase color="#FFCA28" />} title="Firebase" />
-        <SkillItem icon={<FaWordpress color="#21759B" />} title="Wordpress" />
+        {skillInfo.map((el, index) => (
+          <SkillItem key={index} icon={el.icon} title={el.title} />
+        ))}
       </div>
       <Divider />
       <SubTitle>Experience & Education</SubTitle>
       <div className="grid grid-cols-2 gap-x-10 mb-24">
         <div className="col-span-2 lg:col-span-1">
-          <ListItem
-            icon={<FaSuitcase />}
-            time={"2019 - 2019"}
-            title="Instrumentista"
-            place="Repsol"
-            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-          />
-          <ListItem
-            icon={<FaSuitcase />}
-            time={"2019 - 2019"}
-            title="Instrumentista"
-            place="Repsol"
-            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-          />
-          <ListItem
-            icon={<FaSuitcase />}
-            time={"2019 - 2019"}
-            title="Instrumentista"
-            place="Repsol"
-            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-          />
+          {expInfo.map((el, index) => (
+            <ListItem
+              key={index}
+              icon={<FaSuitcase />}
+              time={el.time}
+              title={el.title}
+              place={el.place}
+              description={el.description}
+            />
+          ))}
         </div>
         <div className="col-span-2 lg:col-span-1">
-          <ListItem
-            icon={<FaGraduationCap />}
-            time={"2019 - 2019"}
-            title="Instrumentista"
-            place="Repsol"
-            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-          />
-          <ListItem
-            icon={<FaGraduationCap />}
-            time={"2019 - 2019"}
-            title="Instrumentista"
-            place="Repsol"
-            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-          />
-          <ListItem
-            icon={<FaGraduationCap />}
-            time={"2019 - 2019"}
-            title="Instrumentista"
-            place="Repsol"
-            description="Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m"
-          />
+          {eduInfo.map((el, index) => (
+            <ListItem
+              key={index}
+              icon={<FaGraduationCap />}
+              time={el.time}
+              title={el.title}
+              place={el.place}
+              description={el.description}
+            />
+          ))}
         </div>
       </div>
       {/* </div> */}
-    </>
+    </TitleLayout>
   );
 }
 
-About.getLayout = function getLayout(page) {
-  return (
-    <Layout>
-      <TitleLayout title={"about me"} titleBg={"Resume"}>
-        {page}
-      </TitleLayout>
-    </Layout>
-  );
-};
+About = withTransition(About);
+export default About;
