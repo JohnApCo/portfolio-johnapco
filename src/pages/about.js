@@ -17,6 +17,7 @@ import {
 } from "react-icons/fa";
 
 import {
+  SiCplusplus,
   SiCss3,
   SiFirebase,
   SiGit,
@@ -63,30 +64,31 @@ const skillInfo = [
   { icon: <SiNextdotjs color="#000000" />, title: "NextJs" },
   { icon: <SiRedux color="#764ABC" />, title: "Redux" },
   { icon: <SiFirebase color="#FFCA28" />, title: "Firebase" },
+  { icon: <SiCplusplus color="#00599C" />, title: "C++" },
   { icon: <SiWordpress color="#21759B" />, title: "Wordpress" },
 ];
 
 const expInfo = [
   {
     time: "2020-2022",
-    title: "Asistente de Desarrollo",
+    title: "Design and Development Assistant",
     place: "Lontec",
     description:
-      "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m",
+      "Design and implementation of web pages using Wordpress, CSS and HTML. Application development with Kodular. Development of processing scripts in Python for people detection and tracking using Tensorflow and Raspberry Pi. Electronic design (schematic and layout) using the Eagle program. Development of algorithms in C++ for an ARM microcontroller.",
   },
   {
     time: "2019",
-    title: "Instrumentista",
+    title: "Maintenance trainee",
     place: "Repsol",
     description:
-      "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m",
+      "Planning corrective, preventive and predictive work. Support in carrying out maintenance indicators at the end of the month. Expense analysis of the different maintenance items. Internal warehouse management, Instrumentation area. Monitoring of instrumentation works in the plant. Daily reports of executed and pending jobs.",
   },
   {
     time: "2018",
-    title: "Investigador",
+    title: "Researcher",
     place: "Control SAC",
     description:
-      "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,m",
+      "Development of IoT project for pest control. Circuit design using Eagle and PCB printing. Programming of the microcontrollers with the programming logic to link the system with the web server to send project notifications.",
   },
 ];
 
@@ -152,7 +154,7 @@ const eduInfo = [
 const SkillItem = ({ icon, title, ...other }) => {
   return (
     <div className="text-center">
-      <div className="mx-auto p-2 border-2 rounded-full w-[1.6em] aspect-square text-7xl lg:text-8xl [&_svg]:mx-auto grid [&_svg]:m-auto hover:border-primary">
+      <div className="mx-auto p-2 border-2 rounded-full w-[1.8em] aspect-square text-7xl lg:text-7xl [&_svg]:mx-auto grid [&_svg]:m-auto hover:border-primary">
         {icon}
       </div>
       <h6 className="uppercase my-0 font-semibold">{title}</h6>
@@ -163,7 +165,7 @@ const SkillItem = ({ icon, title, ...other }) => {
 const ListItem = ({ icon, time, title, place, description, ...other }) => {
   return (
     <div className="relative pl-16 after:content-[''] after:absolute after:border-l-[1px] after:bg-divider after:top-0 after:bottom-0 after:left-5 mb-6">
-      <div className="absolute w-10 h-10 left-0 top-0 rounded-full bg-primary text-background grid [&_svg]:m-auto z-10 ">
+      <div className="absolute w-10 h-10 left-0 top-0 rounded-full bg-primary text-white grid [&_svg]:m-auto z-10 ">
         {icon}
       </div>
       <span className="bg-divider px-3 rounded-full font-medium tracking-wider ">
@@ -182,17 +184,16 @@ function About() {
     <TitleLayout title={"about me"} titleBg={"Resume"}>
       <div className="flex flex-row">
         <div className="grid grid-cols-12 gap-6">
-          <div className="w-1/3 lg:w-full mx-auto col-span-12 lg:col-span-5 xl:col-span-5">
+          <div className="w-1/2 lg:w-full mx-auto col-span-12 lg:col-span-5 xl:col-span-5">
             <Image
               src={avatar}
               alt="avatar johnapco"
               style={{ objectFit: "cover" }}
               quality={100}
-              className="rounded-full w-full aspect-square m-auto mb-5 bg-slate-100 object-[0%_20%]"
+              className="rounded-full w-4/5 aspect-square m-auto mb-5 bg-divider object-[0%_20%]"
             />
           </div>
           <div className="col-span-12 lg:col-span-7 xl:col-span-7">
-            {/* <div className="grid grid-cols-12 gap-1"> */}
             <div className="text-center lg:text-left">
               <h4 className="my-0">
                 I&apos;am <span className="text-primary">John</span>, a Web
@@ -232,14 +233,14 @@ function About() {
       </div>
       <Divider />
       <SubTitle>My Skills</SubTitle>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="xl:mx-16 grid grid-cols-2 md:grid-cols-4 gap-4">
         {skillInfo.map((el, index) => (
           <SkillItem key={index} icon={el.icon} title={el.title} />
         ))}
       </div>
       <Divider />
       <SubTitle>Experience & Education</SubTitle>
-      <div className="grid grid-cols-2 gap-x-10 mb-24">
+      <div className="grid grid-cols-2 gap-x-10 pb-24">
         <div className="col-span-2 lg:col-span-1">
           {expInfo.map((el, index) => (
             <ListItem
@@ -265,7 +266,6 @@ function About() {
           ))}
         </div>
       </div>
-      {/* </div> */}
     </TitleLayout>
   );
 }

@@ -50,10 +50,19 @@ function Contact() {
           </div>
 
           <div className="">
-            <SocialLink icon={<FaLinkedin />} />
-            <SocialLink icon={<FaGithub />} />
-            <SocialLink icon={<FaCodepen />} />
-            <SocialLink icon={<FaDiscord />} />
+            <SocialLink
+              icon={<FaLinkedin />}
+              href="https://www.linkedin.com/in/johnapco/"
+            />
+            <SocialLink
+              icon={<FaGithub />}
+              href="https://github.com/JohnApCo"
+            />
+            <SocialLink
+              icon={<FaCodepen />}
+              href="https://codepen.io/JohnApCo"
+            />
+            <SocialLink icon={<FaDiscord />} href="/" />
           </div>
         </div>
         <div className="col-span-3 lg:col-span-2">
