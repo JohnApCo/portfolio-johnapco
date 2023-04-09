@@ -30,7 +30,7 @@ const portfolioInfo = [
     projectUrl: "https://github.com/JohnApCo/javascript-calculator",
   },
   {
-    imgUrl: "/img/Pomodoro-timer.png",
+    imgUrl: "/img/Pomodoro-Timer.png",
     title: "Pomodoro timer",
     detail: "React",
     projectUrl: "https://github.com/JohnApCo/pomodoro-timer",
