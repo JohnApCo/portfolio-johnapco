@@ -4,6 +4,7 @@ import TitleLayout from "../layouts/TitleLayout";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Page from "../components/Page";
+import { MotionViewport, varFade } from "../components/animate";
 
 const portfolioInfo = [
   {
@@ -71,41 +72,43 @@ const PortfolioItem = ({
   };
 
   return (
-    <motion.figure
-      initial="initial"
-      whileHover={"hover"}
-      animate="initial"
-      className="relative"
-    >
-      <div className="rounded-xl overflow-hidden">
-        <motion.div variants={imgMotion} className="aspect-[3/2]">
-          <Image
-            src={imgUrl}
-            fill
-            style={{ objectFit: "cover" }}
-            quality={100}
-            className="object-cover rounded-xl  "
-            alt="Full Project 2"
-            decoding="async"
-            title=""
-          />
-          <Link
-            href={projectUrl}
-            className="absolute top-0 left-0 right-0 bottom-0 z-[3] block"
-          ></Link>
-        </motion.div>
-      </div>
-
-      <h4 className="bg-primary text-white absolute rounded-md top-4 left-4 text-xs py-1 px-3 m-0">
-        {title}
-      </h4>
-      <motion.span
-        variants={textMotion}
-        className="bg-primary text-white absolute rounded-md bottom-4 left-4 text-xs py-1 px-3 m-0"
+    <motion.div variants={varFade().inUp}>
+      <motion.figure
+        initial="initial"
+        whileHover={"hover"}
+        animate="initial"
+        className="relative"
       >
-        {detail}
-      </motion.span>
-    </motion.figure>
+        <div className="rounded-xl overflow-hidden">
+          <motion.div variants={imgMotion} className="aspect-[3/2]">
+            <Image
+              src={imgUrl}
+              fill
+              style={{ objectFit: "cover" }}
+              quality={100}
+              className="object-cover rounded-xl  "
+              alt="Full Project 2"
+              decoding="async"
+              title=""
+            />
+            <Link
+              href={projectUrl}
+              className="absolute top-0 left-0 right-0 bottom-0 z-[3] block"
+            ></Link>
+          </motion.div>
+        </div>
+
+        <h4 className="bg-primary text-white absolute rounded-md top-4 left-4 text-xs py-1 px-3 m-0">
+          {title}
+        </h4>
+        <motion.span
+          variants={textMotion}
+          className="bg-primary text-white absolute rounded-md bottom-4 left-4 text-xs py-1 px-3 m-0"
+        >
+          {detail}
+        </motion.span>
+      </motion.figure>
+    </motion.div>
   );
 };
 function Portfolio() {
@@ -114,13 +117,14 @@ function Portfolio() {
       <TitleLayout title={"my portfolio"} titleBg={"Works"}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
           {portfolioInfo.map((el, index) => (
-            <PortfolioItem
-              key={index}
-              imgUrl={el.imgUrl}
-              title={el.title}
-              detail={el.detail}
-              projectUrl={el.projectUrl}
-            />
+            <MotionViewport key={index} variants={varFade().inUp}>
+              <PortfolioItem
+                imgUrl={el.imgUrl}
+                title={el.title}
+                detail={el.detail}
+                projectUrl={el.projectUrl}
+              />
+            </MotionViewport>
           ))}
         </div>
       </TitleLayout>

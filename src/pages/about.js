@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Button from "../components/Button";
-import HeaderTitle from "../components/HeaderTitle";
+import { motion } from "framer-motion";
 
 //assets/images
 import avatar from "../../public/img/john_apco_v4.png";
@@ -38,6 +38,7 @@ import { InfoItem } from "../components/InfoItem";
 import PageTransition from "../components/animate/withTransition";
 import withTransition from "../components/animate/withTransition";
 import Page from "../components/Page";
+import { MotionViewport, varFade } from "../components/animate";
 
 const personalInfo = [
   { itemText: "first name", icon: <FaPencilAlt />, valueText: "John Frei" },
@@ -184,21 +185,27 @@ function About() {
   return (
     <Page title="About">
       <TitleLayout title={"about me"} titleBg={"Resume"}>
-        <div className="flex flex-row">
+        <MotionViewport className="flex flex-row">
           <div className="grid grid-cols-12 gap-6">
-            <div className="w-1/2 lg:w-full mx-auto col-span-12 lg:col-span-5 xl:col-span-5">
+            <motion.div
+              variants={varFade().inLeft}
+              className="w-1/2 lg:w-full mx-auto col-span-12 lg:col-span-5 xl:col-span-5"
+            >
               <Image
                 src={avatar}
                 alt="avatar johnapco"
                 style={{ objectFit: "cover" }}
                 quality={100}
-                className="rounded-full w-4/5 aspect-square m-auto mb-5 bg-divider object-[0%_20%]"
+                className="rounded-full w-4/5 aspect-square m-auto lg:mt-12  bg-divider object-[0%_20%]"
               />
-            </div>
-            <div className="col-span-12 lg:col-span-7 xl:col-span-7">
+            </motion.div>
+            <motion.div
+              variants={varFade().inUp}
+              className="col-span-12 lg:col-span-7 xl:col-span-7"
+            >
               <div className="text-center lg:text-left">
                 <h4 className="my-0">
-                  I&apos;am <span className="text-primary">John</span>, a Web
+                  I&apos;m <span className="text-primary">John</span>, a Web
                   Developer
                 </h4>
                 <p className="mt-2 mb-4">
@@ -225,14 +232,16 @@ function About() {
                   <Button icon={<FaDownload />}>Download CV</Button>
                 </a>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </MotionViewport>
         <Divider />
         <SubTitle>My Skills</SubTitle>
         <div className="xl:mx-16 grid grid-cols-2 md:grid-cols-4 gap-4">
           {skillInfo.map((el, index) => (
-            <SkillItem key={index} icon={el.icon} title={el.title} />
+            <MotionViewport key={index} variants={varFade().inUp}>
+              <SkillItem icon={el.icon} title={el.title} />
+            </MotionViewport>
           ))}
         </div>
         <Divider />
@@ -240,26 +249,30 @@ function About() {
         <div className="grid grid-cols-2 gap-x-10 pb-24">
           <div className="col-span-2 lg:col-span-1">
             {expInfo.map((el, index) => (
-              <ListItem
-                key={index}
-                icon={<FaSuitcase />}
-                time={el.time}
-                title={el.title}
-                place={el.place}
-                description={el.description}
-              />
+              <MotionViewport key={index} variants={varFade().inUp}>
+                <ListItem
+                  /* key={index} */
+                  icon={<FaSuitcase />}
+                  time={el.time}
+                  title={el.title}
+                  place={el.place}
+                  description={el.description}
+                />
+              </MotionViewport>
             ))}
           </div>
           <div className="col-span-2 lg:col-span-1">
             {eduInfo.map((el, index) => (
-              <ListItem
-                key={index}
-                icon={<FaGraduationCap />}
-                time={el.time}
-                title={el.title}
-                place={el.place}
-                description={el.description}
-              />
+              <MotionViewport key={index} variants={varFade().inUp}>
+                <ListItem
+                  /* key={index} */
+                  icon={<FaGraduationCap />}
+                  time={el.time}
+                  title={el.title}
+                  place={el.place}
+                  description={el.description}
+                />
+              </MotionViewport>
             ))}
           </div>
         </div>

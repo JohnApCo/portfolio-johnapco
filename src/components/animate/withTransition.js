@@ -11,7 +11,7 @@ const withTransition = (OriginalComponent) => {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 0 }}
           exit={{ scaleX: 1 }}
-          transition={{ duration: 0.75, ease: "easeInOut" }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
         />
         <motion.div
           key="out"
@@ -19,7 +19,7 @@ const withTransition = (OriginalComponent) => {
           initial={{ scaleX: 1 }}
           animate={{ scaleX: 0 }}
           exit={{ scaleX: 0 }}
-          transition={{ duration: 0.75, ease: "easeInOut" }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
         />
       </>
     );

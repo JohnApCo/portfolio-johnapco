@@ -12,21 +12,21 @@ const navRoutes = [
   { href: "/contact", title: "Contact", icon: <FaEnvelopeOpen /> },
 ];
 
-const NavItem = ({ icon, title, href = "" }) => {
+const NavItemDesktop = ({ icon, title, href = "" }) => {
   const router = useRouter();
   return (
     <li
       className={`${
         router.pathname === href ? "bg-primary text-white" : "text-text"
-      } relative w-12 h-12 grid items-center my-5 mx-0 text-xl leading-none bg-divider rounded-full [&_svg]:absolute [&_svg]:right-0 [&_svg]:left-0 [&_svg]:block [&_svg]:m-auto [&_svg]:pointer-events-none hover:bg-primary hover:text-white`}
+      } relative w-[3.2rem] h-[3.2rem] grid items-center my-5 mx-0 text-xl leading-none bg-divider rounded-full [&_svg]:absolute [&_svg]:right-0 [&_svg]:left-0 [&_svg]:block [&_svg]:m-auto [&_svg]:pointer-events-none hover:bg-primary hover:text-white`}
     >
       <Link href={href} legacyBehavior>
         <a
           className={
-            "w-12 h-12 rounded-full block p-0 [&_h2]:hover:opacity-100 [&_h2]:hover:text-center [&_h2]:hover:rounded-l-full [&_h2]:hover:right-6"
+            "w-12 h-12 rounded-full block p-0 [&_h2]:hover:opacity-100 [&_h2]:hover:text-center [&_h2]:hover:right-6 [&_h2]:hover:rounded-l-full [&_h2]:hover:rounded-r-none"
           }
         >
-          <h2 className="absolute -z-10 top-0 right-0 leading-[3rem] font-medium uppercase h-12 text-sm opacity-0 bg-primary pl-8 pr-7 m-0 ">
+          <h2 className="rounded-full absolute -z-10 top-0 right-0 text-[0.9rem] leading-[3.2rem] font-medium uppercase h-[3.2rem]  opacity-0 bg-primary pl-8 pr-7 m-0 transition-all duration-300">
             {title}
           </h2>
         </a>
@@ -37,7 +37,7 @@ const NavItem = ({ icon, title, href = "" }) => {
   );
 };
 
-const NavItemDesktop = ({ icon, title, href = "", handleCloseMenu }) => {
+const NavItemMobile = ({ icon, title, href = "", handleCloseMenu }) => {
   const router = useRouter();
   const handleClick = (e) => {
     e.preventDefault();
@@ -78,13 +78,18 @@ function NavMenu() {
     <header className="fixed top-[100px] right-7 z-50 h-[calc(100vh-200px)] flex items-center">
       <ul className="hidden lg:block">
         {navRoutes.map((el, index) => (
-          <NavItem key={index} href={el.href} icon={el.icon} title={el.title} />
+          <NavItemDesktop
+            key={index}
+            href={el.href}
+            icon={el.icon}
+            title={el.title}
+          />
         ))}
       </ul>
       <nav role="navigation" className="block lg:hidden">
         <div id="menuToggle">
           <button
-            className={`fixed top-3 right-3 sm:top-8 sm:right-8 z-50 select-none p-0 sm:p-2 border-[1px] text-4xl rounded-md border-none bg-divider ${
+            className={`fixed top-3 right-3 bg-transparent sm:bg-divider sm:top-8 sm:right-8 z-50 select-none p-0 sm:p-2 border-[1px] text-4xl rounded-md border-none ${
               !open ? "sm:border-divider_menu" : "border-transparent"
             }`}
             onClick={handleToggleMenu}
@@ -92,13 +97,13 @@ function NavMenu() {
             {open ? <MdClose /> : <MdMenu />}
           </button>
           <ul
-            className={`fixed top-0 left-0 w-full h-full pt-16 bg-divider ${
-              !open && "-translate-x-full"
+            className={`fixed top-0 left-0 w-full h-full pt-16 bg-divider transition-transform duration-300 ease-in ${
+              !open ? "-translate-x-full" : "-translate-x-0"
             } `}
             id="menu"
           >
             {navRoutes.map((el, index) => (
-              <NavItemDesktop
+              <NavItemMobile
                 key={index}
                 href={el.href}
                 icon={el.icon}
