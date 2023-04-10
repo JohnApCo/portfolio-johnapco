@@ -84,7 +84,7 @@ function NavMenu() {
       <nav role="navigation" className="block lg:hidden">
         <div id="menuToggle">
           <button
-            className={`fixed top-1 right-2 sm:top-8 sm:right-8 z-50 select-none p-2 border-[1px] text-4xl rounded-md border-none bg-divider ${
+            className={`fixed top-3 right-3 sm:top-8 sm:right-8 z-50 select-none p-0 sm:p-2 border-[1px] text-4xl rounded-md border-none bg-divider ${
               !open ? "sm:border-divider_menu" : "border-transparent"
             }`}
             onClick={handleToggleMenu}

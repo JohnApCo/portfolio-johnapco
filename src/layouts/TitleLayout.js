@@ -13,7 +13,7 @@ function TitleLayout({ children, title, titleBg, ...other }) {
 
   return (
     <>
-      <section className=" bg-divider sm:bg-transparent border-b-[1px] sm:border-none border-divider_menu px-6 py-4 sm:py-20 text-text uppercase text-left sm:text-center fixed sm:relative mb-9 sm:m-0 left-0 right-0 top-0 z-20">
+      <section className=" bg-divider sm:bg-transparent border-b-[1px] sm:border-none border-divider_menu px-4 py-4 sm:py-20 text-text uppercase text-left sm:text-center fixed sm:relative mb-9 sm:m-0 left-0 right-0 top-0 z-20">
         <h1 className="font-black my-0 leading-none">
           {otherWords} <span className="text-primary">{lastWord}</span>
         </h1>

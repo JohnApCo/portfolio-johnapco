@@ -3,6 +3,7 @@ import withTransition from "../components/animate/withTransition";
 import TitleLayout from "../layouts/TitleLayout";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Page from "../components/Page";
 
 const portfolioInfo = [
   {
@@ -109,19 +110,21 @@ const PortfolioItem = ({
 };
 function Portfolio() {
   return (
-    <TitleLayout title={"my portfolio"} titleBg={"Works"}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
-        {portfolioInfo.map((el, index) => (
-          <PortfolioItem
-            key={index}
-            imgUrl={el.imgUrl}
-            title={el.title}
-            detail={el.detail}
-            projectUrl={el.projectUrl}
-          />
-        ))}
-      </div>
-    </TitleLayout>
+    <Page title="Portfolio">
+      <TitleLayout title={"my portfolio"} titleBg={"Works"}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+          {portfolioInfo.map((el, index) => (
+            <PortfolioItem
+              key={index}
+              imgUrl={el.imgUrl}
+              title={el.title}
+              detail={el.detail}
+              projectUrl={el.projectUrl}
+            />
+          ))}
+        </div>
+      </TitleLayout>
+    </Page>
   );
 }
 

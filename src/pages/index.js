@@ -1,12 +1,10 @@
-import Head from "next/head";
 /* import Image from "next/image"; */
 import { Inter } from "next/font/google";
 import Page from "../components/Page";
 import Image from "next/image";
 /* import styles from "@/styles/Home.module.css"; */
-import avatar from "../../public/img/john_apco_v3.png";
+import avatar from "../../public/img/john_apco_v4.png";
 import Button from "../components/Button";
-import Layout from "../layouts";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import withTransition from "../components/animate/withTransition";
@@ -16,10 +14,7 @@ import withTransition from "../components/animate/withTransition";
 function Home() {
   return (
     <>
-      <Page
-        title="Home"
-        className="text-text flex items-center min-h-full px-4"
-      >
+      <Page title="Home" className="flex items-center min-h-full px-4">
         <div className="hidden lg:block bg-primary fixed w-full h-[200%] -rotate-[15deg] -left-[83%] -top-2/4"></div>
         <div className="bg-background w-full h-screen flex flex-row items-center justify-center">
           <div className="overflow-hidden hidden lg:block bg-divider w-2/6 h-[calc(100vh-80px)] rounded-3xl fixed left-10 top-10 z-30 shadow-[0_0_7px_rgba(0,0,0,0.3)]">

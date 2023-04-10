@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import HeaderTitle from "../components/HeaderTitle";
 
 //assets/images
-import avatar from "../../public/img/john_apco_v3.png";
+import avatar from "../../public/img/john_apco_v4.png";
 import Divider from "../components/Divider";
 import SubTitle from "../components/SubTitle";
 
@@ -37,6 +37,7 @@ import TitleLayout from "../layouts/TitleLayout";
 import { InfoItem } from "../components/InfoItem";
 import PageTransition from "../components/animate/withTransition";
 import withTransition from "../components/animate/withTransition";
+import Page from "../components/Page";
 
 const personalInfo = [
   { itemText: "first name", icon: <FaPencilAlt />, valueText: "John Frei" },
@@ -181,92 +182,89 @@ const ListItem = ({ icon, time, title, place, description, ...other }) => {
 };
 function About() {
   return (
-    <TitleLayout title={"about me"} titleBg={"Resume"}>
-      <div className="flex flex-row">
-        <div className="grid grid-cols-12 gap-6">
-          <div className="w-1/2 lg:w-full mx-auto col-span-12 lg:col-span-5 xl:col-span-5">
-            <Image
-              src={avatar}
-              alt="avatar johnapco"
-              style={{ objectFit: "cover" }}
-              quality={100}
-              className="rounded-full w-4/5 aspect-square m-auto mb-5 bg-divider object-[0%_20%]"
-            />
-          </div>
-          <div className="col-span-12 lg:col-span-7 xl:col-span-7">
-            <div className="text-center lg:text-left">
-              <h4 className="my-0">
-                I&apos;am <span className="text-primary">John</span>, a Web
-                Developer
-              </h4>
-              <p className="mt-2 mb-4">
-                Hi! My name is John Frei Apaza Coaquira. I am a Web Developer,
-                and I&apos;m very passionate and dedicated to my work. With 2
-                years experience as a professional Web developer, I have
-                acquired the skills and knowledge necessary to make your project
-                a success.
-              </p>
+    <Page title="About">
+      <TitleLayout title={"about me"} titleBg={"Resume"}>
+        <div className="flex flex-row">
+          <div className="grid grid-cols-12 gap-6">
+            <div className="w-1/2 lg:w-full mx-auto col-span-12 lg:col-span-5 xl:col-span-5">
+              <Image
+                src={avatar}
+                alt="avatar johnapco"
+                style={{ objectFit: "cover" }}
+                quality={100}
+                className="rounded-full w-4/5 aspect-square m-auto mb-5 bg-divider object-[0%_20%]"
+              />
             </div>
-            {/* <div className="grid grid-rows-4 grid-flow-col"> */}
-            <div className="grid grid-cols-2">
-              {personalInfo.map((el, index) => (
-                <InfoItem
-                  key={index}
-                  icon={el.icon}
-                  itemText={el.itemText}
-                  valueText={el.valueText}
-                />
-              ))}
-            </div>
-            <div className="my-6">
-              <a href="/files/CV_John_Frei_Apaza_Coaquira_2020.docx" download>
-                <Button
-                  href="/files/CV_John_Frei_Apaza_Coaquira_2020.docx"
-                  icon={<FaDownload />}
-                >
-                  Download CV
-                </Button>
-              </a>
+            <div className="col-span-12 lg:col-span-7 xl:col-span-7">
+              <div className="text-center lg:text-left">
+                <h4 className="my-0">
+                  I&apos;am <span className="text-primary">John</span>, a Web
+                  Developer
+                </h4>
+                <p className="mt-2 mb-4">
+                  Hi! My name is John Frei Apaza Coaquira. I am a Web Developer,
+                  and I&apos;m very passionate and dedicated to my work. With 2
+                  years experience as a professional Web developer, I have
+                  acquired the skills and knowledge necessary to make your
+                  project a success.
+                </p>
+              </div>
+              {/* <div className="grid grid-rows-4 grid-flow-col"> */}
+              <div className="grid grid-cols-2">
+                {personalInfo.map((el, index) => (
+                  <InfoItem
+                    key={index}
+                    icon={el.icon}
+                    itemText={el.itemText}
+                    valueText={el.valueText}
+                  />
+                ))}
+              </div>
+              <div className="my-6">
+                <a href="/files/CV_John_Frei_Apaza_Coaquira_2023.pdf" download>
+                  <Button icon={<FaDownload />}>Download CV</Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <Divider />
-      <SubTitle>My Skills</SubTitle>
-      <div className="xl:mx-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-        {skillInfo.map((el, index) => (
-          <SkillItem key={index} icon={el.icon} title={el.title} />
-        ))}
-      </div>
-      <Divider />
-      <SubTitle>Experience & Education</SubTitle>
-      <div className="grid grid-cols-2 gap-x-10 pb-24">
-        <div className="col-span-2 lg:col-span-1">
-          {expInfo.map((el, index) => (
-            <ListItem
-              key={index}
-              icon={<FaSuitcase />}
-              time={el.time}
-              title={el.title}
-              place={el.place}
-              description={el.description}
-            />
+        <Divider />
+        <SubTitle>My Skills</SubTitle>
+        <div className="xl:mx-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {skillInfo.map((el, index) => (
+            <SkillItem key={index} icon={el.icon} title={el.title} />
           ))}
         </div>
-        <div className="col-span-2 lg:col-span-1">
-          {eduInfo.map((el, index) => (
-            <ListItem
-              key={index}
-              icon={<FaGraduationCap />}
-              time={el.time}
-              title={el.title}
-              place={el.place}
-              description={el.description}
-            />
-          ))}
+        <Divider />
+        <SubTitle>Experience & Education</SubTitle>
+        <div className="grid grid-cols-2 gap-x-10 pb-24">
+          <div className="col-span-2 lg:col-span-1">
+            {expInfo.map((el, index) => (
+              <ListItem
+                key={index}
+                icon={<FaSuitcase />}
+                time={el.time}
+                title={el.title}
+                place={el.place}
+                description={el.description}
+              />
+            ))}
+          </div>
+          <div className="col-span-2 lg:col-span-1">
+            {eduInfo.map((el, index) => (
+              <ListItem
+                key={index}
+                icon={<FaGraduationCap />}
+                time={el.time}
+                title={el.title}
+                place={el.place}
+                description={el.description}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </TitleLayout>
+      </TitleLayout>
+    </Page>
   );
 }
 
